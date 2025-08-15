@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cqrs-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cqrs-app
+  template:
+    metadata:
+      labels:
+        app: cqrs-app
+    spec:
+      containers:
+        - name: cqrs-app-instance
+          image: cqrs-app
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8080
+

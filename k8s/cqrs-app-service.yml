@@ -1,0 +1,12 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name:  cqrs-service
+spec:
+  selector:
+    app:  cqrs-app
+  type:  NodePort
+  ports:
+  - name:  cqrs-service
+    port:  80
+    targetPort:  8080
