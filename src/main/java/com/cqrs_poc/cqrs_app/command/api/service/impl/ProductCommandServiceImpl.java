@@ -13,8 +13,8 @@ public class ProductCommandServiceImpl implements ProductCommandService {
     private final CommandGateway commandGateway;
 
     @Override
-    public String addProduct(CreateProductReqDTO createProductReqDTO) {
-        return commandGateway.sendAndWait(ProductMapper.toCommand(createProductReqDTO));
+    public void addProduct(CreateProductReqDTO createProductReqDTO) {
+        commandGateway.sendAndWait(ProductMapper.toCommand(createProductReqDTO));
     }
 
 }

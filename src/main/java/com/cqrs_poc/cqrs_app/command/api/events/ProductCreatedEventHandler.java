@@ -12,7 +12,7 @@ public class ProductCreatedEventHandler {
     private final ProductRepository productRepository;
 
     @EventHandler
-    void on(ProductCreatedEvent productCreatedEvent) {
+    public void on(ProductCreatedEvent productCreatedEvent) {
         this.productRepository.save(ProductMapper.toProduct(productCreatedEvent));
     }
 }

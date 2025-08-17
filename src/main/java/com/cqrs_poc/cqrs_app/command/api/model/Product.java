@@ -20,7 +20,7 @@ public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private Long name;
+    private String name;
     private BigDecimal price;
     private Long quantity;
 }
