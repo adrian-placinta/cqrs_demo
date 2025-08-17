@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: axon-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: axon-deployment
+  template:
+    metadata:
+      labels:
+        app: axon-deployment
+    spec:
+      containers:
+      - name: axon-instance
+        image: axoniq/axonserver
+        ports:
+        - name: axon-port
+          containerPort: 8024
+          protocol: TCP

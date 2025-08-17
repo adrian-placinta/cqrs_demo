@@ -1,0 +1,25 @@
+version: '3.7'
+
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: mysql-db
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql-data:/var/lib/mysql
+
+  axon-server:
+    image: axoniq/axonserver
+    container_name: axon-server
+    ports:
+      - "8024:8024" # gRPC for clients
+      - "8124:8124" # HTTP for dashboard
+    volumes:
+      - axon-data:/data
+
+volumes:
+  mysql-data:
+  axon-data:
